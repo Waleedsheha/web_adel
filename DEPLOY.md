@@ -17,6 +17,24 @@ source. The image just serves it with nginx.
 No environment variables — the app is fully static, everything is baked in at
 build time.
 
+## 502 Bad Gateway
+
+The proxy returns 502 when it cannot reach the container. In order of likelihood:
+
+1. **`Ports Exposes` is not `80`.** Coolify defaults new applications to `3000`;
+   nginx listens on `80`, so Traefik proxies to a dead port. Configuration →
+   Network → `Ports Exposes` = `80`. This is the usual cause.
+2. **Container marked unhealthy.** Coolify's generated health check shells out to
+   `curl`, which `nginx:alpine` does not ship — the check fails forever and the
+   proxy never routes. The Dockerfile installs `curl` for exactly this reason.
+   Health check path: `/healthz`, port `80`.
+3. **No container is running at all** — the last build failed, so the previous
+   (failed) deployment is still current. Check the Deployments tab.
+
+The image itself is verified: nginx starts clean, `/healthz` returns `ok`,
+`main.dart.js` is served at 746 KB gzipped, `.wasm` gets `application/wasm`, and
+unknown paths fall back to `index.html`.
+
 ## Redeploying after a new Flutter build
 
 ```bash

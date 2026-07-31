@@ -20,13 +20,16 @@ RUN apk add --no-cache gzip \
 # ---- stage 2: runtime -------------------------------------------------------
 FROM nginx:1.27-alpine
 
-RUN rm -rf /usr/share/nginx/html/*
+# curl is not in nginx:alpine, and Coolify's generated health check calls it.
+# Without it the container is marked unhealthy forever and the proxy 502s.
+RUN apk add --no-cache curl \
+ && rm -rf /usr/share/nginx/html/*
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=compress /site /usr/share/nginx/html
 
 EXPOSE 80
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget -qO- http://127.0.0.1/healthz || exit 1
+  CMD curl -fsS http://127.0.0.1:80/healthz || exit 1
 
 CMD ["nginx", "-g", "daemon off;"]
