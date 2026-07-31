@@ -1,0 +1,14 @@
+.git
+.gitattributes
+.gitignore
+.vscode
+.last_build_id
+Dockerfile
+.dockerignore
+nginx.conf
+DEPLOY.md
+README.md
+
+# Dart/JS debug symbol maps — never fetched by the running app
+**/*.symbols
+**/*.js.map
