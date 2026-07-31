@@ -5,9 +5,11 @@
 .last_build_id
 Dockerfile
 .dockerignore
-nginx.conf
 DEPLOY.md
 README.md
+
+# NOTE: nginx.conf is deliberately NOT ignored — stage 2 copies it into
+# /etc/nginx. The compress stage deletes it so it never reaches the web root.
 
 # Dart/JS debug symbol maps — never fetched by the running app
 **/*.symbols

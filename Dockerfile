@@ -8,6 +8,7 @@ FROM alpine:3.20 AS compress
 WORKDIR /site
 COPY . .
 RUN apk add --no-cache gzip \
+ && rm -f nginx.conf \
  && find . -type f \
       \( -name '*.js'   -o -name '*.mjs'  -o -name '*.json' \
       -o -name '*.css'  -o -name '*.html' -o -name '*.wasm' \
