@@ -26399,7 +26399,7 @@ $S:2}
 A.ani.prototype={
 $1(a){var s=A.cN().b
 s=s==null?null:s.canvasKitBaseUrl
-return(s==null?"https://www.gstatic.com/flutter-canvaskit/83675ed27633283e7fc296c8bca22e841224c096/":s)+a},
+return(s==null?"https://www.gstatic.com/flutter-canvaskit/0cd610717bde95fd88343c64f81c11ba4e5c0010/":s)+a},
 $S:105}
 A.J7.prototype={
 gq(a){var s=this.a
@@ -83000,7 +83000,7 @@ break}m.ad(new A.akC(m))
 p=4
 l=B.c.f6(i.a.a)+" \u2014 \u0647\u0627\u062a\u0641: "+A.k(c)
 if(m.giV()!=="echo"&&B.c.f6(m.x.a.a).length!==0)l=A.k(l)+" \u2014 \u0645\u0644\u0627\u062d\u0638\u0627\u062a: "+B.c.f6(m.x.a.a)
-i=A.fY("http://supabasekong-vqv5ej6tzob9e6z21jj0vrch.84.46.243.160.sslip.io/rest/v1/"+(m.giV()==="echo"?"echo_requests":"home_visit_requests"),0,null)
+i=A.fY("https://vnotebase.syvursoft.com/rest/v1/"+(m.giV()==="echo"?"echo_requests":"home_visit_requests"),0,null)
 h=t.N
 g=A.aq(["apikey","eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc4NDkyMTU4MCwiZXhwIjo0OTQwNTk1MTgwLCJyb2xlIjoiYW5vbiJ9.YGFfxa1NDz4x1XOFYo2CD24iKQ7mQwYQx7392piwXUw","Authorization","Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc4NDkyMTU4MCwiZXhwIjo0OTQwNTk1MTgwLCJyb2xlIjoiYW5vbiJ9.YGFfxa1NDz4x1XOFYo2CD24iKQ7mQwYQx7392piwXUw","Content-Type","application/json; charset=utf-8","Prefer","return=minimal"],h,h)
 k=A.p(h,h)
